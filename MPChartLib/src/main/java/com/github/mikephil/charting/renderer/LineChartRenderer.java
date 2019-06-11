@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 import com.github.mikephil.charting.animation.ChartAnimator;
 import com.github.mikephil.charting.charts.LineChart;
@@ -382,6 +383,8 @@ public class LineChartRenderer extends LineRadarRenderer {
 
         } else { // only one color per dataset
 
+            Log.w("XXX", "AYEEEE");
+
             if (mLineBuffer.length < Math.max((entryCount) * pointsPerEntryPair, pointsPerEntryPair) * 2)
                 mLineBuffer = new float[Math.max((entryCount) * pointsPerEntryPair, pointsPerEntryPair) * 4];
 
@@ -390,6 +393,7 @@ public class LineChartRenderer extends LineRadarRenderer {
             e1 = dataSet.getEntryForIndex(mXBounds.min);
 
             if (e1 != null) {
+                Log.w("XXX", "AYEEEE2");
 
                 int j = 0;
                 for (int x = mXBounds.min; x <= mXBounds.range + mXBounds.min; x++) {
@@ -402,6 +406,8 @@ public class LineChartRenderer extends LineRadarRenderer {
                     //skip NaNs
                     if (Float.isNaN(e1.getY())) continue;
                     if (Float.isNaN(e2.getY())) continue;
+
+                    Log.w("XXX", "AYEEEE3");
 
                     mLineBuffer[j++] = e1.getX();
                     mLineBuffer[j++] = e1.getY() * phaseY;
