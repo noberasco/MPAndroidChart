@@ -393,7 +393,7 @@ public class LineChartRenderer extends LineRadarRenderer {
             e1 = dataSet.getEntryForIndex(mXBounds.min);
 
             if (e1 != null) {
-                Log.w("XXX", "AYEEEE2");
+                Log.w("XXX", "AYEEEE2: from " + mXBounds.min + " to " + mXBounds.range + mXBounds.min);
 
                 int j = 0;
                 for (int x = mXBounds.min; x <= mXBounds.range + mXBounds.min; x++) {
@@ -427,6 +427,8 @@ public class LineChartRenderer extends LineRadarRenderer {
                     trans.pointValuesToPixel(mLineBuffer);
 
                     final int size = Math.max((mXBounds.range + 1) * pointsPerEntryPair, pointsPerEntryPair) * 2;
+
+                    Log.w("XXX", "AYEEEE4: drawing " + size + " lines (j=" + j + ")");
 
                     mRenderPaint.setColor(dataSet.getColor());
 
